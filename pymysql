@@ -1,0 +1,67 @@
+pymysql模块，使用python调用mysql数据库所要引进的库。
+（1）连接数据库：
+conn = pymysql.connect(host='127.0.0.1', user='root', passwd='123456', db='exam', charset='utf8')
+cur=conn.cursor()
+关于游标cursor：
+close():关闭此游标对象 
+fetchone():得到结果集的下一行 
+fetchmany([size = cursor.arraysize]):得到结果集的下几行 
+fetchall():得到结果集中剩下的所有行 
+excute(sql[, args]):执行一个数据库查询或命令 
+excutemany(sql, args):执行多个数据库查询或命令
+代码示范：
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Sep  8 16:18:56 2018
+
+@author: Administrator
+"""
+import pandas as pd
+import pymysql
+
+#et_price(security, start_date=None, end_date=None, frequency='daily', fields=None, fq='pre', count=None)
+class Get_price:
+    def __init__(self,host='rm-bp155nkg5n6f01kt0yo.mysql.rds.aliyuncs.com', port=3306, user='root_database', password='Tianshenda0718', db='test_kline_collection',charset="utf8"):
+        #self.host = host
+        #self.port = port
+        #self.user = user
+        #self.password = password
+        #self.db = db
+        #self.charset = charset
+        self.conn = pymysql.connect( host=host, port=port, user=user, password=password,db=db,charset = charset)
+        
+    def get_price(self,start_date,end_date):
+        self.cursor = self.conn.cursor()
+        self.start_date = start_date
+        self.end_date = end_date
+        self.params = (self.start_date,self.end_date)
+# 查询操作
+#SELECT 列名称 FROM 表名称
+        self.sql_select = '''select 
+            o.CYCLEDATE as cycledate,
+            o.btcusd as openbtcusd,
+            h.btcusd as highbtcusd,
+            l.btcusd as lowbtcusd,
+            c.btcusd as closebtcusd,
+            t.btcusd as totalbtcusd 
+            from 
+              (select * from t_open_bitfinex
+             where cyclename = '1hour' and CYCLEDATE between %s and %s) o 
+              left join (select * from t_high_bitfinex
+             where cyclename='1hour' ) h on o.CYCLEDATE = h.CYCLEDATE
+              left join (select * from t_low_bitfinex
+             where cyclename='1hour') l on l.CYCLEDATE = h.CYCLEDATE
+              left join (select * from t_close_bitfinex
+             where cyclename='1hour') c on c.CYCLEDATE = l.CYCLEDATE
+              left join (select * from t_total_bitfinex
+             where cyclename='1hour') t on t.CYCLEDATE = c.CYCLEDATE
+              order by o.CYCLEDATE asc
+              '''
+
+        self.cursor.execute(self.sql_select,self.params)  # 执行sql语句
+        result = self.cursor.fetchall()  # 获取所有记录列表
+        result1 = list(result)
+        #result1 = [list(i) for i in result1]
+        df1 = pd.DataFrame(result1,columns=['time','open','high','low','close','volume'])
+        self.conn.close() # 关闭连接
+        return df1
