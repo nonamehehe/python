@@ -1,0 +1,10 @@
+元素-表达式：lambda argument_list：expression
+lambda x, y: x*y；函数输入是x和y，输出是它们的积x*y
+add=lambda x, y: x+y
+add(1,2)=3
+
+将lambda函数作为参数传递给其他函数
+找出3的倍数：
+list(filter(lambda x: x % 3 == 0, [1, 2, 3]))
+map函数：
+list(map(lambda x: x+1, [1, 2,3]))
