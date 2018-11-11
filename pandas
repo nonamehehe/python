@@ -1,0 +1,38 @@
+Series是指一维数组，与Numpy中的array相似，这两个也与list相似，不同时的是list可以放入不同数据类型。
+Series与array只允许存储相同数据结构，Series增加了Label以用于索引。
+>>> a=[3,2,6,2]
+>>> b=pd.Series(a)
+>>> b
+0    3
+1    2
+2    6
+3    2
+>>> b.index
+RangeIndex(start=0, stop=4, step=1)
+>>> b.values
+array([3, 2, 6, 2], dtype=int64)
+>>> d=pd.Series(a,index=['g','h','j','k'])
+>>> d
+g    3
+h    2
+j    6
+k    2
+>>> b[b>2]
+0    3
+2    6
+>>> b.describe()
+count    4.000000
+mean     3.250000
+std      1.892969
+min      2.000000
+25%      2.000000
+50%      2.500000
+75%      3.750000
+max      6.000000
+dtype: float64
+>>> b.to_dict()
+{0: 3, 1: 2, 2: 6, 3: 2}
+
+Pandas的读取csv，txt,xlsx等。
+a=pd.read_csv()
+a.to_excel()
