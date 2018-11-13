@@ -21,7 +21,7 @@ import pymysql
 
 #et_price(security, start_date=None, end_date=None, frequency='daily', fields=None, fq='pre', count=None)
 class Get_price:
-    def __init__(self,host='rm-bp155nkg5n6f01kt0yo.mysql.rds.aliyuncs.com', port=3306, user='root_database', password='Tianshenda0718', db='test_kline_collection',charset="utf8"):
+    def __init__(self,host='rm-bp155nkg5n6f01kt0yo.mysql.rds.aliyuncs.com', port=3306, user='root_database', password='xxx', db='test_kline_collection',charset="utf8"):
         #self.host = host
         #self.port = port
         #self.user = user
