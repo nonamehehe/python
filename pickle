@@ -1,0 +1,12 @@
+pickle的使用举例：
+import numpy as np
+import pandas as pd
+import pickle
+aa=pd.DataFrame(np.ones([0,4]))
+aa.columns = ['买入时间','买入币种','买入数量','买入价格']
+f=open('C:/Users/Administrator/Desktop/数字货币/虚拟货币数据/已完成框架/buy_data2.spydata','wb')
+pickle.dump(aa,f)
+f.close()
+d=open('C:/Users/Administrator/Desktop/数字货币/虚拟货币数据/已完成框架/buy_data2.spydata','rb')
+a=pickle.load(d)
+通过此方法，可以对数据先序列化，然后反序列化，从而达到数据保存加载的作用。
