@@ -1,0 +1,8 @@
+time模块的使用：
+>>> import time
+>>> time.time()
+1542359416.0360363
+>>> time.ctime()
+'Fri Nov 16 17:10:21 2018'
+
+datetime模块的使用：
