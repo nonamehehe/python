@@ -13,3 +13,5 @@ datetime模块的使用：
 datetime.datetime(2018, 11, 17, 8, 50, 44, 137584)
 >>> datetime.datetime.now()
 datetime.datetime(2018, 11, 17, 8, 59, 46, 505069)
+>>> datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+'2018-11-17 09:02:05'
