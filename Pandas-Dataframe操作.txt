@@ -47,8 +47,20 @@ c    3  NaN  NaN
 b    2  6.0  NaN
 a    1  6.0  NaN
 
-【6】、DataFrame去重复数据
-
+【6】、loc（）函数插入行，drop删除行
+>>> df.loc['d']=[4,2,7]
+>>> df
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+c    3  NaN  NaN
+d    4    2  7.0
+>>> df1.drop('d',axis=0,inplace=True)
+>>> df1
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+c    3  NaN  NaN
 
 【7】Dataframe删除列del、drop和pop方法三种方式与insert()插入某列
 1、del：直接删除列
@@ -79,7 +91,7 @@ a    1  NaN  6.0
 b    2  NaN  6.0
 c    3  NaN  NaN
 
-
+【8】、DataFrame去重复数据
 
 
 
