@@ -1,0 +1,14 @@
+DataFrame是二维表格型数据结构，类似R的data.frame，是Series的容器。
+【1】、字典转化为DataFrame
+>>> d={'one':pd.Series([1,2,3],index=['a','b','c']),'two':pd.Series([6,6],index=['a','b'])}
+>>> df=pd.DataFrame(d)
+>>> df
+   one  two
+a    1  6.0
+b    2  6.0
+c    3  NaN
+
+【2】、set.option设置输出格式，最多显示行数、列数
+>>> pd.set_option('display.max_rows',100)
+
+【3】、
