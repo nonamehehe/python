@@ -40,4 +40,60 @@ a    1  6.0  NaN
 b    2  6.0  NaN
 c    3  NaN  NaN
 
-【5】、
+【5】、sort_values()函数，多列的升降序排列
+>>> df.sort_values(by=['one','two'],ascending=[False,True])
+   one  two  新增列
+c    3  NaN  NaN
+b    2  6.0  NaN
+a    1  6.0  NaN
+
+【6】、DataFrame去重复数据
+
+
+【7】Dataframe删除列del、drop和pop方法三种方式与insert()插入某列
+1、del：直接删除列
+2、drop：删除某列，不改变原来的df数据，返回删除后的新表df2。axis为1表示删除列，0表示删除行。inplace为True表示直接对原表修改。
+3、pop：取出删除列，改变原来的df数据。
+4、改变某一列的位置。如：先删除列，然后在原表df中某列插入被删掉的列。
+>>> df
+   one  two    a  新增列
+a    1  6.0  6.0  NaN
+b    2  6.0  6.0  NaN
+c    3  NaN  NaN  NaN
+>>> del df['a']
+>>> df
+   one  two  新增列
+a    1  6.0  NaN
+b    2  6.0  NaN
+c    3  NaN  NaN
+>>> df2=df.drop('新增列',axis=1,inplace=False)
+>>> df2
+   one  two
+a    1  6.0
+b    2  6.0
+c    3  NaN
+>>> df.insert(1,'add',df.pop('新增列'))
+>>> df
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+c    3  NaN  NaN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
