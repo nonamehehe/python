@@ -184,7 +184,22 @@ a    1  NaN  6.0
 b    2  NaN  6.0
 d    4    2  7.0
 
-【13】、根据条件进行筛选
+【13】、连续型变量分组，使用cut（）函数进行切分
+>>> df
+   one    six  two
+a    1   9.12  6.0
+b    2  21.03  6.0
+c    3  27.03  NaN
+d    4   5.45  7.0
+>>> bins=[4,9,10,20,30]	#分组区间
+>>> cat=pd.cut(df.six,bins)
+>>> cat
+a     (9, 10]
+b    (20, 30]
+c    (20, 30]
+d      (4, 9]
+Name: six, dtype: category
+Categories (4, interval[int64]): [(4, 9] < (9, 10] < (10, 20] < (20, 30]]
 
 
 
