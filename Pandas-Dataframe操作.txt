@@ -91,7 +91,107 @@ a    1  NaN  6.0
 b    2  NaN  6.0
 c    3  NaN  NaN
 
-【8】、DataFrame去重复数据
+【8】、DataFrame去重复数据,drop_duplicates()函数的使用
+1、df.drop_duplicates()#不带任何参数，将完全相同的行去重。
+2、drop_duplicates(subset=['one'],keep='last')#subset列名称，keep保留哪个
+>>> df1
+   one two
+a    1   6
+b    1   6
+e    3   3
+c    3   3
+d    3   4
+>>> df1.drop_duplicates()
+   one two
+a    1   6
+e    3   3
+d    3   4
+>>> df1.drop_duplicates(subset=['one'],keep='last')
+   one two
+b    1   6
+d    3   4
+
+【9】、批量替换replace（）函数的使用
+>>> df1
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+c    3  NaN  NaN
+d    4    2  7.0
+>>> df1.replace(np.nan,0)
+   one  add  two
+a    1    0  6.0
+b    2    0  6.0
+c    3    0  0.0
+d    4    2  7.0
+>>> df1.replace(np.nan,'空数据')
+   one  add  two
+a    1  空数据    6
+b    2  空数据    6
+c    3  空数据  空数据
+d    4    2    7
+
+【10】、DataFrame的列重命名rename()函数
+>>> df1
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+c    3  NaN  NaN
+d    4    2  7.0
+>>> df1.rename(columns={'add':'新增'})
+   one   新增  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+c    3  NaN  NaN
+d    4    2  7.0
+
+【11】、DataFrame的三种切片方式，loc(),iloc()与ix()。
+loc是location的简写，iloc为integer location的简写。
+1、loc（）第一个参数表示行，第二个表示列
+2、ix（）自动判断是标签还是位置进行切片。
+>>> df
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+c    3  NaN  NaN
+d    4    2  7.0
+>>> df.loc[['a','b'],['one','two']]
+   one  two
+a    1  6.0
+b    2  6.0
+>>> df.ix[:,'two']
+a    6.0
+b    6.0
+c    NaN
+d    7.0
+Name: two, dtype: float64
+
+【12】、根据条件进行筛选
+>>> df
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+c    3  NaN  NaN
+d    4    2  7.0
+>>> df[df.two>5]
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+d    4    2  7.0
+>>> df[(df.two>5)*1==1]
+   one  add  two
+a    1  NaN  6.0
+b    2  NaN  6.0
+d    4    2  7.0
+
+【13】、根据条件进行筛选
+
+
+
+
+
+
+
 
 
 
