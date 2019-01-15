@@ -184,7 +184,8 @@ a    1  NaN  6.0
 b    2  NaN  6.0
 d    4    2  7.0
 
-【13】、连续型变量分组，使用cut（）函数进行切分
+【13】、连续型变量分组，便于区间统计。
+1、使用cut（）函数进行切分
 >>> df
    one    six  two
 a    1   9.12  6.0
@@ -201,17 +202,73 @@ d      (4, 9]
 Name: six, dtype: category
 Categories (4, interval[int64]): [(4, 9] < (9, 10] < (10, 20] < (20, 30]]
 
+2、pd.value_counts()函数对区间进行统计
+>>> pd.value_counts(cat)
+(20, 30]    2
+(9, 10]     1
+(4, 9]      1
+(10, 20]    0
+Name: six, dtype: int64
 
+3、对分组标签重新命名，利用pd.cut(labels参数)
 
+>>> group_rename = ['低','较低','较高','高']
+>>> pd.cut(df.six,bins,labels=group_rename)
+a    较低
+b     高
+c     高
+d     低
+Name: six, dtype: category
+Categories (4, object): [低 < 较低 < 较高 < 高]
 
+【14】、Pandas分组技术，groupby()函数的运用。
+1、agg(）传入多个统计参数
 
+>>> df
+   one    six  two
+a  1.0   9.12  6.0
+b  2.0  21.03  6.0
+c  3.0  27.03  NaN
+d  4.0   5.45  7.0
+e  4.0   6.00  6.0
+>>> df['six'].groupby(df['one']).count()#计数
+one
+1.0    1
+2.0    1
+3.0    1
+4.0    2
+Name: six, dtype: int64
+>>> df['six'].groupby(df['one']).sum()#求和
+one
+1.0     9.12
+2.0    21.03
+3.0    27.03
+4.0    11.45
+Name: six, dtype: float64
+>>> df[['six','two']].groupby(df['one']).agg({'six':['sum'],'two':['count']})
+       six   two
+       sum count
+one
+1.0   9.12     1
+2.0  21.03     1
+3.0  27.03     0
+4.0  11.45     2
 
-
-
-
-
-
-
+【15】、Pandas分组技术，apply()函数的运用。
+>>> df.groupby(df['one']).apply(lambda x:x[:1])	#只显示一行
+       one    six  two
+one
+1.0 a  1.0   9.12  6.0
+2.0 b  2.0  21.03  6.0
+3.0 c  3.0  27.03  NaN
+4.0 d  4.0   5.45  7.0
+>>> df.groupby(df['one']).apply(lambda x:x.sum()) #求和
+     one    six   two
+one
+1.0  1.0   9.12   6.0
+2.0  2.0  21.03   6.0
+3.0  3.0  27.03   0.0
+4.0  8.0  11.45  13.0
 
 
 
