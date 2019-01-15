@@ -8,6 +8,16 @@
 2    6
 3    2
 
+1.1、访问数据
+>>> x=pd.Series(['a',2,'测试'],index=[1,2,3])
+>>> x
+1     a
+2     2
+3    测试
+dtype: object
+>>> x[3]
+'测试'
+
 2、通过index与values获取Series的索引与数据
 >>> b.index
 RangeIndex(start=0, stop=4, step=1)
