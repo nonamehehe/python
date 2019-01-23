@@ -1,11 +1,12 @@
-time模块的使用：
+﻿一、time模块的使用：
+
 >>> import time
 >>> time.time()   #获取时间戳
 1542359416.0360363
 >>> time.ctime()  #一个时间戳转化为time.asctime()的形式
 'Fri Nov 16 17:10:21 2018'
 
-datetime模块的使用：
+二、datetime模块的使用：
 >>> import datetime
 >>> time.time()
 1542415739.4501636
@@ -13,5 +14,9 @@ datetime模块的使用：
 datetime.datetime(2018, 11, 17, 8, 50, 44, 137584)
 >>> datetime.datetime.now()
 datetime.datetime(2018, 11, 17, 8, 59, 46, 505069)
+
+1、strftime('%Y-%m-%d %H:%M:%S')函数，时间转为年月日，时分秒。
 >>> datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 '2018-11-17 09:02:05'
+
+2、
