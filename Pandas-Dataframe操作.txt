@@ -270,7 +270,7 @@ one
 3.0  3.0  27.03   0.0
 4.0  8.0  11.45  13.0
 
-【16】、两个DataFrame的合并，append()函数的使用。
+【16】、两个DataFrame的合并，append()函数的使用。注意：列名称必须保持一致
 >>> df=pd.DataFrame([[1,2],[3,4]],columns=['a','b'])
 >>> df
    a  b
