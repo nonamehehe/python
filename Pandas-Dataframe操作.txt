@@ -295,10 +295,10 @@ one
 2  5  6
 3  7  8
 
+【17】、将多个DataFrame的合并，concat（）函数的使用
 
-
-
-
+res = pd.concat([df1,df2,df3],axis=0,ignore_index=True)
+参数axis=0表示上下合并，1表示左右合并，ignore_index=True表示忽略原来的索引
 
 
 
