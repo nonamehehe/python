@@ -1,0 +1,3 @@
+1、json.dumps()与json.loads
+
+dumps是将dict转化成str格式，loads是将str转化成dict格式。
