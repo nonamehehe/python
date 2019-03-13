@@ -1,0 +1,10 @@
+Pandas函数中，使用resample能够非常方便地完成周期转换的工作。
+
+周线【close】= 本周最后一个交易日线【close】
+周线【open] = 本周最后一个交易日线【open】
+周线的【high】= max（本周所有日线【high】)
+周线的【low】= min（本周所有日线【low】）
+周线的【volume】= sum（本周所有日线【volume】）
+
+period_type = 'd'	#周期参数 ‘w'
+period_data_btc_hour_close2 = data_btc_hour_close2.resample(period_type,how='last')	#how参数 'max','first','last','min','sum'
