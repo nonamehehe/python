@@ -7,4 +7,4 @@ Pandas函数中，使用resample能够非常方便地完成周期转换的工作。
 周线的【volume】= sum（本周所有日线【volume】）
 
 period_type = 'd'	#周期参数 ‘w'
-period_data_btc_hour_close2 = data_btc_hour_close2.resample(period_type,how='last')	#how参数 'max','first','last','min','sum'
+period_data_btc_hour_close2 = data_btc_hour_close2.resample(period_type).how()	#how参数为'max','first','last','min','sum'
