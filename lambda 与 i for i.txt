@@ -15,6 +15,10 @@ add(1,2)=3
 >>> list(map(lambda x: x+1, [1, 2,3]))
 [2, 3, 4]
 
+3、reduce函数：需要先入到模块from functools import reduce
+接收两个参数，一个是函数，一个是序列
+In [181]:  reduce(add,(range(5)))
+Out[181]:  10
 
 三、i for i in xx if xx 表达式： 
 带有i的expression for i in 某范围 if 带i的expression。
