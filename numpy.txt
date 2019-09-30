@@ -54,8 +54,11 @@ array([[1, 2],
        [3, 4],
        [3, 4]])
 
-
-
+8、numpy.extract() 函数根据某个条件从数组中抽取元素，返回满条件的元素。
+>>> x = np.arange(9)
+>>> condition = np.mod(x,2)  ==  0 #取偶
+>>> print (np.extract(condition, x))
+[0 2 4 6 8]
 
 
 
