@@ -461,10 +461,14 @@ while(1):
             sell_much_signal1[i,:] = cmp_logictable_cross_ma60_empty[i]==1
             sell_much_signal2[i,:] = cmp_logictable_cross_ma60_empty[i]==1
             sell_much_signal3[i,:] = sum(cmp_logictable_greenK[i-3:i+1])==4
-            sell_much_signal4[i,:] = cmp_logictable_shock[i]>1.03
+            sell_much_signal4[i,:] = cmp_logictable_shock[i]>1.03   #最高价/收盘价>1.03
+            #小时涨幅绝对值/前一小时涨幅绝对值>0.85，且下跌，跌幅超过1.9%。
             sell_much_signal5[i,:] = abs(close_ratio[i])/abs(close_ratio[i-1])>0.85 and cmp_logictable_greenK[i]==1 and close_ratio[i]<-1.9 
+            #过去3小时收盘价<MA5 >=2次，过去3小时收盘价<MA10 >=2次，过去3小时涨跌幅<-0.4% >=2次，当小时<-0.4%
             sell_much_signal6[i,:] = sum(cmp_logictable_c_less_ma5[i-2:i+1])>=2 and sum(cmp_logictable_c_less_ma10[i-2:i+1])>=2 and sum(close_ratio[i-2:i+1]<-0.4)>=2 and close_ratio[i]<-0.4 and cmp_logictable_greenK[i]==1 
+            #前一小时收盘为过去96小时最大值,且前一小时0<涨幅<0.5%，本小时跌幅超-1%，却本小时跌幅/前一小时涨幅4.5倍。
             sell_much_signal7[i,:] = close2[i-1]==max(close2[i-96:i]) and close_ratio[i-1]<0.4 and cmp_logictable_redK[i-1]==1 and cmp_logictable_greenK[i]==1 and close_ratio[i]<-1 and abs(close_ratio[i]/close_ratio[i-1])>4.5 
+            #（反包:前1小时上涨，本小时下跌，前1小时的涨幅<当前小时的跌幅，跌幅>-0.7 ， 收盘价<ma10 ，开盘价>ma10）过去5小时反包次数>=2次，且本小时出现反包，且跌幅>4%
             sell_much_signal8[i,:] = sum(cmp_logictable_redK_greenK[i-4:i+1])>=2 and cmp_logictable_redK_greenK[i]==1 and abs(close_ratio[i])/abs(close_ratio[i-1])>4 
             sell_much_signal9[i,:] = cmp_logictable_c_less_ma5_ma10_ma20[i]==1 and cmp_logictable_o_more_ma5_ma10_ma20[i]==1 and close_ratio[i]<-1 and cmp_logictable_greenK[i]==1 
             sell_much_signal10[i,:] = (close2[i]/max(hh2[i-2:i+1])-1)*100<-3.7 
