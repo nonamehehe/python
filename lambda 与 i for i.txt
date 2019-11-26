@@ -20,6 +20,7 @@ add(1,2)=3
 In [181]:  reduce(add,(range(5)))
 Out[181]:  10
 
+
 三、i for i in xx if xx 表达式： 
 带有i的expression for i in 某范围 if 带i的expression。
 
