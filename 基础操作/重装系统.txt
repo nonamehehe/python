@@ -1,5 +1,6 @@
 1、点击“这台电脑”选择“管理”—“磁盘管理”—格式化U盘。
 2、访问http://msdn.itellyou.cn/下载系统镜像
-3、将镜像文件复制到U盘
-4、BIOS设置U盘启动，自动安装。
-5、下载KMSTOOLS激活系统，安装office。
+3、下载UltraISO将U盘设置为启动盘
+4、将镜像文件复制到U盘
+5、BIOS设置U盘启动，自动安装。
+6、下载KMSTOOLS激活系统，安装office。
