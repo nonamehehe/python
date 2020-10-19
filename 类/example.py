@@ -4,6 +4,18 @@ Created on Sat Sep 26 11:40:59 2020
 
 @author: Administrator
 """
+#——————001类变量————————
+class Student:
+    name = 'lvl'  #类变量
+    age = 32   #类变量
+    
+stu = Student()   #类实例化
+print(stu.name)   #实例对象调用类变量
+print(stu.age)  #同上
+print(Student.name)  #类对象 调用类变量
+
+
+
 #创建一个简单的类，如同构建工厂一般。
 class BuildRobot():
     def __init__(self,armcount,headcount):
