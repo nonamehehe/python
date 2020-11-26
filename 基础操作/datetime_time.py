@@ -29,7 +29,7 @@ datetime.datetime.fromtimestamp(time.time())  # datetime.datetime(2018, 11, 17, 
 datetime.datetime.now().timestamp()
 #3、当前本地时间的datetime对象
 datetime.datetime.now()  #datetime.datetime(2018, 11, 17, 8, 59, 46, 505069)
-#4、strftime('%Y-%m-%d %H:%M:%S')函数，时间转为年月日，时分秒。
+#4、将datetime对象或timestamp转为str字符型,时间转为年月日，时分秒。
 datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  #'2018-11-17 09:02:05'
 #5、strptime方法，将年月日，时分秒转为datetime对象。
 datetime.datetime.strptime(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),'%Y-%m-%d %H:%M:%S')
