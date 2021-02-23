@@ -43,10 +43,15 @@ aaa = 1592397180 #时间戳
 time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(aaa))  #'2020-06-17 20:33:00'
 
 #二、'%Y-%m-%d %H:%M:%S'(日期时间)转为时间戳。
-#1：日期时间格式转为datetime对象。2：datetime对象转时间戳
-aaa2=datetime.datetime.strptime(datetime.datetime(2020, 6, 18, 5,0,0).strftime('%Y-%m-%d %H:%M:%S'),'%Y-%m-%d %H:%M:%S')#'2020-06-18 05:00:00'
-aaa2.timestamp() #转为时间戳
+#1：datetime对象与字符型日期时间格式的相互转换。
+# strftime = str format time 按字符格式化时间    # strptime = str parse time 字符解析时间
+datetime.datetime(2020, 6, 18, 5,0,0)#datetime对象   datetime.datetime(2020, 6, 18, 5, 0)
+datetime.datetime(2020, 6, 18, 5,0,0).strftime('%Y-%m-%d %H:%M:%S') #datetime对象转为字符型   '2020-06-18 05:00:00'
+#将字符型解析回datetime对象   datetime.datetime(2020, 6, 18, 5, 0)
+datetime.datetime.strptime(datetime.datetime(2020, 6, 18, 5,0,0).strftime('%Y-%m-%d %H:%M:%S'),'%Y-%m-%d %H:%M:%S')
 
+#2：datetime对象转时间戳
+datetime.datetime(2020, 6, 18, 5,0,0).timestamp() #转为时间戳  1592427600.0
 
 datetime.datetime.strptime(str(sell_record2.iloc[:,0][0]),'%Y-%m-%d %H:%M:%S')-datetime.timedelta(days=1)
 
