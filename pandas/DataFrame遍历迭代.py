@@ -17,6 +17,7 @@ print(df)
 小明   1  101   29     118
 '''
 
+
 for row in df.iterrows():
     print(row)
 #获的每行的元组格式
