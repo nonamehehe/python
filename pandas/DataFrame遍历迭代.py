@@ -4,6 +4,10 @@ Created on Thu Dec 10 11:38:12 2020
 
 @author: Administrator
 """
+import pandas as pd
+import numpy as np
+
+
 #——————————————————————————1、for row in df.iterrows() 将DataFrame行作为（索引，系列）对进行迭代——————————————————————————————
 df = pd.DataFrame(np.random.randint(0, 150, size=(4, 4)),
                 index=['张三', '李四', '王五', '小明'],
@@ -106,6 +110,17 @@ Name: 英语, dtype: int32)
 Name: Python, dtype: int32)
 '''
 
+N=20
+df = pd.DataFrame({
+    'A': pd.date_range(start='2016-01-01',periods=N,freq='D'),
+    'x': np.linspace(0,stop=N-1,num=N),
+    'y': np.random.choice([0,1],N).tolist(),
+    'C': np.random.choice(['Low','Medium','High'],N).tolist(),
+    'D': np.random.normal(100, 10, size=(N)).tolist()
+    })
 
-
-
+for key,value in df.iterrows():
+    #print (key,value)
+    print(df.iloc[key,:]==1)
+    
+    
