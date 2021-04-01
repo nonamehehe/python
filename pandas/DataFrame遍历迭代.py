@@ -121,6 +121,10 @@ df = pd.DataFrame({
 
 for key,value in df.iterrows():
     #print (key,value)
-    print(df.iloc[key,:]==1)
+    value = df[key-1]
+    
+    print(value==1)
+    a_01 =value
+    a_00 = key
     
     
