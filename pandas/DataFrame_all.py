@@ -51,6 +51,8 @@ df[df['A'].isin(['学校'])] #列值是否包含某些字符
 df[df['A'].str.contains(['学校'])]#列值是否包含字符,与isin区别在于全部与部分
 df[df['A'].str.contains('学校')]#列值是否包含字符,与isin区别在于全部与部分
 
+
+
 #数据抽取
 df['a'].astype(str)		#将列数据转为str（字符型）。
 df['a'].str.slice(0,3)		#提取a列的前三个数据。
