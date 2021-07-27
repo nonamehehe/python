@@ -11,7 +11,10 @@ Created on Sat Mar 27 06:53:56 2021
 #————数据筛选002————
 # ~ |.isin() |.str.contains() |.astype() | .str.slice()| .set_index() |.reset_index() |.sort_index() | | | | |
 
-#————数据操作003————
+#————数据判断003————
+#
+
+#————数据操作004————
 # map()| apply()| applymap()| | | | | | | | | | | | |
 
 import pandas as pd
@@ -46,11 +49,16 @@ df['name'].str.rstrip()		#删除右边空格，左边中间空格不删除
 df['name'].str.lstrip()		#删除左边空格，右边中间空格不删除
 
 #————————————————————————————————数据筛选002————————————————————————————————————
+
 df[~df['A']>5]  #取反操作，反向
 df[df['A'].isin(['学校'])] #列值是否包含某些字符
 df[df['A'].str.contains(['学校'])]#列值是否包含字符,与isin区别在于全部与部分
 df[df['A'].str.contains('学校')]#列值是否包含字符,与isin区别在于全部与部分
 
+#重复数据筛选
+df[df.index.duplicated()]  #获取index重复数据
+df[~df.index.duplicated()]  #获取index非重复数据
+df[df.duplicated()]  #获取df value重复数据
 
 
 #数据抽取
@@ -70,7 +78,18 @@ df.reindex(columns = lie)		#用列表lie替换列索引
 ###数据整理
 df.sort_index()		#重新排序（默认为升序）
 
-#————————————————————————————————数据操作002————————————————————————————————————
+#————————————————————————————————数据判断003————————————————————————————————————
+
+df.equals(df2)  #df与df2是否相同
+
+
+
+
+
+
+
+
+
 
 
 
