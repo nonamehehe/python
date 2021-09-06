@@ -106,12 +106,6 @@ df01 = pd.read_csv('C:\\Users\\EDZ\\Desktop\\github\\trade\\币安\\永续套利
 
 
 
-class var():
-    a=1
-    b=3
-    if hasattr(var,'self.a'):
-        print('ss')
-
 
 
 
