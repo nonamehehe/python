@@ -1,8 +1,8 @@
 ﻿
 #在Python中共有三种表达方式：
 #1）timestamp 2）tuple或者struct_time 3）格式化字符串。
-############strftime 可以理解为 str format time ,意为字符格式的时间
-############strptime 可以理解为 str tuple time ,意为元组格式的时间（结构体时间）
+#strftime = str format time ,意为字符格式的时间
+#strptime = str tuple time ,意为元组格式的时间（结构体时间）
 ############################################一、time模块的使用：####################################
 #1、获取当前时间的时间戳，time.time() 
 import time
